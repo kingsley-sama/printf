@@ -28,9 +28,14 @@ The **Custom Printf** project is an ambitious endeavor to recreate the functiona
 
 5. **Create Pull Requests:** Submit well-documented pull requests explaining the purpose of your changes and the improvements they bring.
 
+## Stacks 
+### C/GCC
+### Markdown 	
+### Git/Github  
+
 ## Getting Started
 
-To get started with the Custom Printf project:
+To contribute to the Custom Printf project:
 
 ```bash
 git clone https://github.com/your-username/custom-printf.git
