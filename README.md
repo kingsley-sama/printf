@@ -1,6 +1,3 @@
-Absolutely! Here's the markdown-formatted text that you can directly copy and paste into your README.md file on GitHub:
-
-```markdown
 # Custom Printf: Reimagining the Beloved C Standard Output Function
 
 ## Project Overview
@@ -48,10 +45,9 @@ cd custom-printf
 - **printf Man Page:** Reference the official `printf` man page for a comprehensive understanding of the standard function.
 
 ## Contributors
+### -Kingsley Okpo
+### -Gift Aghaulor
 
 This project welcomes contributions from developers of all levels. Feel free to open issues, suggest improvements, or contribute code. Together, let's reimagine and understand the inner workings of the `printf` function in C!
 
-Happy coding! 🚀
-```
-
-Copy and paste this into your README.md file, and you should be good to go!
+Happy Hacking! 🚀
