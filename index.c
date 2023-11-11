@@ -10,13 +10,11 @@
 int _printf(const char *format, ...)
 {
 	int count, i;
-	char c, s;
+	char c;
 	char *str;
 	va_list args;
 
-	count = 0;
-	i = 0;
-	va_start(args, format);
+	count = 0, i = 0, va_start(args, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -27,14 +25,17 @@ int _printf(const char *format, ...)
 				c = (char)va_arg(args, int);
 				_putchar(c);
 				i += 1;
+				count += 1;
 				break;
 			case 's':
 				str = va_arg(args, char *);
 				_print_str(str);
+				count += _strlen_recursion(str);
 				i += 1;
 				break;
 			case '%':
 				_putchar('%');
+				count += 1;
 				i += 1;
 				break;
 			}
@@ -42,6 +43,7 @@ int _printf(const char *format, ...)
 		else if (format[i] != '%')
 		{
 			_putchar(format[i]);
+			count += 1;
 		}
 		i++;
 	}
