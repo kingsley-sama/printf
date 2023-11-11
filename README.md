@@ -31,12 +31,13 @@ The **Custom Printf** project is an ambitious endeavor to recreate the functiona
 ## Stacks 🔥🔥🔥
 ### C/GCC 👨‍‍💻 
 ### Markdown	
-### Git/Github
+### Git/Github![Custom Icon](https://example.com/icon.png)
+
 
 ## Getting Started
 
 To contribute to the Custom Printf project:
-
+Replace https://example.com/icon.png with the URL of your image.
 ```bash
 git clone https://github.com/your-username/custom-printf.git
 cd custom-printf
