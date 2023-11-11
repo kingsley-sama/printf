@@ -29,16 +29,13 @@ int _printf(const char *format, ...)
 				i += 1;
 				break;
 			case 's':
-                                str = va_arg(args, char *);
-                                _print_str(str);
+				str = va_arg(args, char *);
+				_print_str(str);
 				i += 1;
-                                break;
+				break;
 			case '%':
 				_putchar('%');
 				break;
-
-
-
 			}
 		}
 		else if (format[i] != '%')
