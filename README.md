@@ -50,8 +50,8 @@ cd custom-printf
 - **printf Man Page:** Reference the official `printf` man page for a comprehensive understanding of the standard function.
 
 ## Contributors
-### -Kingsley Okpo
-### -Gift Aghaulor
+### -Kingsley Okpo👨🏿
+### -Gift Aghaulor👩🏿
 
 This project welcomes contributions from developers of all levels. Feel free to open issues, suggest improvements, or contribute code. Together, let's reimagine and understand the inner workings of the `printf` function in C!
 
