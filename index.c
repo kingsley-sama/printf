@@ -47,7 +47,6 @@ int _printf(const char *format, ...)
 {
 	int count, i, j;
 	char *str;
-	va_list args_copy;
 	va_list args;
 	delimeter param[] = {{'s', _printstr},{'c', _printchar},{'d',_printdigit},{'i',_printdigit}};
 
