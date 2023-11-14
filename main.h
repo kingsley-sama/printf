@@ -14,6 +14,7 @@ typedef struct delimeter
 	char a;
 	int (*func)();
 } delimeter;
+int  print_rev_str(va_list args);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_const_int(va_list args);
@@ -22,6 +23,7 @@ int print_const_str(va_list args);
 int print_str(va_list args);
 int print_char(va_list args);
 int print_dec(va_list args);
-int  print_const_dec(va_list args);
-
+int print_const_dec(va_list args);
+char *rot13(char *s);
+int print_rot13_str(va_list args);
 #endif

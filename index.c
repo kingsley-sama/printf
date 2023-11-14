@@ -30,6 +30,23 @@ int _printf(const char *format, ...)
 					count += print_str(args);
 					i++;
 					break;
+				case 'd':
+					count += print_dec(args);
+					i++;
+					break;
+				case 'i':
+					count += print_int(args);
+					i++;
+					break;
+				case 'r':
+					count += print_rev_str(args);
+					i++;
+					break;
+				case 'R':
+					count += print_rot13_str(args);
+					i++;
+					break;
+						
 				case '%':
 					_putchar('%');
 					count++;

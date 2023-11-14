@@ -1,17 +1,31 @@
 #include "main.h"
+#include <stdarg.h>
 #include <stdio.h>
+#include <ctype.h>
 /**
- *_print_rev_recursion - This function reverses a string
+ *print_rev_str - This function reverses a string
  * Return: void
- *@s: this is the string
+ *@args: this is the string
  */
-void _print_rev_recursion(char *s)
+int  print_rev_str(va_list args)
 {
-	if (*s == '\0')
+	char *s = va_arg(args, char *);
+	int i = 0, len = 0, j;
+
+	if (s == NULL)
+		return (0);
+	while (s[i] != '\0')
 	{
-		return;
+		i++;
 	}
 
-	_print_rev_recursion(s + 1);
-	_putchar(*s);
+	for (j = i - 1; j >= 0; j--)
+	{
+		if (isalpha(s[j]))
+		{
+			_putchar(s[j]);
+			len++;
+		}
+	}
+	return (len);
 }
