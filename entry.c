@@ -12,7 +12,8 @@ int main(void)
     int len2;
     unsigned int ui;
     void *addr;
-    _printf("%d",_printf("%d%s%c%c\n", 71,"cat boy", 'c','d'));
-    printf("%d",printf("%d%s%c%c\n", 71,"cat boy", 'c','d'));
+    printf("hello %d\n",printf("%d%s%c%c\n", 7,"cat boy", 'c','d'));
+    _printf("hello %d\n",_printf("%d%s%c%c\n", 7,"cat boy", 'c','d'));
     return (0);
+
 }

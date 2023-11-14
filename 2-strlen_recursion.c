@@ -5,9 +5,8 @@
  * Return: void
  *@args: args
  */
-int _strlen_recursion(va_list args)
+int _strlen_recursion(char *s)
 {
-	char *s = va_arg(args, char *);
 	int count, i;
 	
 	count = 0, i = 0;

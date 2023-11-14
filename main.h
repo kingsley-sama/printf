@@ -18,7 +18,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 void _print_str(char *s);
 void print_int(int a);
-int _strlen_recursion(va_list args);
+int _strlen_recursion(char *s);
 char *rot13(char *s);
 void _print_rev_recursion(char *s);
 #endif

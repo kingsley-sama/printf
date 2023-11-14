@@ -46,6 +46,7 @@ void _printdigit(va_list args)
 int _printf(const char *format, ...)
 {
 	int count, i, j;
+	char *str;
 	va_list args_copy;
 	va_list args;
 	delimeter param[] = {{'s', _printstr},{'c', _printchar},{'d',_printdigit},{'i',_printdigit}};
@@ -61,16 +62,19 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == param[j].a)
 				{
 
-					param[j].func(args);
-					va_copy(args_copy, args);
-					if (format[i + 1] != 's')
+
+					if (format[i + 1] == 's')
 					{
-						count += _strlen_recursion(args_copy);
+						str = va_arg(args, char *);
+						_print_str(str);
+						count += _strlen_recursion(str);
 						i += 1;
 					}
 					else
 					{
-						i+=1;
+						param[j].func(args);
+						count += 1;
+						i += 1;
 					}
 				}
 				j++;
@@ -79,12 +83,15 @@ int _printf(const char *format, ...)
 		else if (format[i] == '\\' && format[i + 1] == '\\')
 		{
 			_putchar('\\');
-			i += 1;
 			count += 1;
+			i += 1;
+		
 		}
 		else
 		{
+			count += 1;
 			_putchar(format[i]);
+
 		}
 
 		i++;
