@@ -2,13 +2,15 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+/**
+ *_printf - this prints to std
+ *@format: format
+ *Return: number of characters printed output
+ */
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count, i;
-	/* delimeter param[] = { */
-	/* 	{'s', print_str},{'c', print_char},{'d', print_int},{'i', print_dec} */
-	/* }; */
+	int count, i = 0;
 
 	count = 0, i = 0, va_start(args, format);
 	while (format[i] != '\0')
@@ -26,12 +28,12 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					count += print_str(args);
-					i ++;
+					i++;
 					break;
 				case '%':
 					_putchar('%');
 					count++;
-					i++;;
+					i++;
 					break;
 				}
 			}
@@ -42,7 +44,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == '\\' && format[i + 1] == '\\')
 			{
-				_putchar(format[i]);
+				_putchar('\\');
 				count += 1;
 			}
 			i++;
