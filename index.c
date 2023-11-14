@@ -1,100 +1,55 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
-/**
- * _printchar - function that prints output according to a format.
- * @format: an array of characters and specifier
- * Return:the number of characters printed
- */
-void _printchar(va_list args)
-{
-	char c;
-	c = (char)va_arg(args, int);
-	_putchar(c);
-}
-/**
- * _printstr - function that prints output according to a format.
- * @format: an array of characters and specifier
- * Return:the number of characters printed
- */
-void _printstr(va_list args)
-{
-	char *s;
-	s = va_arg(args, char *);
-	if (s != NULL)
-		_print_str(s);
-
-
-	
-}
-/**
- * _printdigit - function that prints output according to a format.
- * @format: an array of characters and specifier
- * Return:the number of characters printed
- */
-void _printdigit(va_list args)
-{
-	print_int(va_arg(args, int));
-}
-
-/**
- * _printf - function that prints output according to a format.
- * @format: an array of characters and specifier
- * Return:the number of characters printed
- */
-
+#include <string.h>
 int _printf(const char *format, ...)
 {
+	va_list args, args_copy;
+	
 	int count, i, j;
+	char c;
 	char *str;
-	va_list args;
-	delimeter param[] = {{'s', _printstr},{'c', _printchar},{'d',_printdigit},{'i',_printdigit}};
+	delimeter param[] = {
+		{'s', print_str},{'c', print_char},{'d', print_int},{'i', print_dec}
+	};
 
 	count = 0, i = 0, va_start(args, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		count = 0, i = 0, va_start(args, format);
+		while (format[i] != '\0')
 		{
-			j = 0;
-			while (param[j].func != NULL)
+			if (format[i] == '%')
 			{
-				if (format[i + 1] == param[j].a)
+				switch (format[i + 1])
 				{
-
-
-					if (format[i + 1] == 's')
-					{
-						str = va_arg(args, char *);
-						_print_str(str);
-						count += _strlen_recursion(str);
-						i += 1;
-					}
-					else
-					{
-						param[j].func(args);
-						count += 1;
-						i += 1;
-					}
+				case 'c':
+					c = (char)va_arg(args, int);
+					_putchar(c);
+					i += 1;
+					count += 1;
+					break;
+				case 's':
+					va_copy(args_copy, args);
+					str = va_arg(args_copy, char *);
+					print_str(args);
+					count += strlen(str);
+					i += 1;
+					break;
+				case '%':
+					_putchar('%');
+					count += 1;
+					i += 1;
+					break;
 				}
-				j++;
 			}
+			else if (format[i] != '%')
+			{
+				_putchar(format[i]);
+				count += 1;
+			}
+			i++;
 		}
-		else if (format[i] == '\\' && format[i + 1] == '\\')
-		{
-			_putchar('\\');
-			count += 1;
-			i += 1;
-		
-		}
-		else
-		{
-			count += 1;
-			_putchar(format[i]);
-
-		}
-
-		i++;
 	}
-	va_end(args);
 	return (count);
 }
