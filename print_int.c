@@ -16,14 +16,11 @@ int print_int(va_list args)
     if (n == 0)
     {
         _putchar('0');
-        return 1;  // No need to proceed further if n is 0
+        return 1;
     }
 
     if (n == INT_MIN)
-    {
-        // Handle INT_MIN separately
-        // (Note: This is just an example; you may need a more specific implementation)
-    }
+	    ;
     else
     {
         if (n < 0)

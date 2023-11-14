@@ -5,13 +5,12 @@
 int _printf(const char *format, ...)
 {
 	va_list args, args_copy;
-	
-	int count, i, j;
+	int count, i;
 	char c;
 	char *str;
-	delimeter param[] = {
-		{'s', print_str},{'c', print_char},{'d', print_int},{'i', print_dec}
-	};
+	/* delimeter param[] = { */
+	/* 	{'s', print_str},{'c', print_char},{'d', print_int},{'i', print_dec} */
+	/* }; */
 
 	count = 0, i = 0, va_start(args, format);
 	while (format[i] != '\0')
