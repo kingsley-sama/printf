@@ -4,10 +4,8 @@
 #include <string.h>
 int _printf(const char *format, ...)
 {
-	va_list args, args_copy;
+	va_list args;
 	int count, i;
-	char c;
-	char *str;
 	/* delimeter param[] = { */
 	/* 	{'s', print_str},{'c', print_char},{'d', print_int},{'i', print_dec} */
 	/* }; */
@@ -23,17 +21,12 @@ int _printf(const char *format, ...)
 				switch (format[i + 1])
 				{
 				case 'c':
-					c = (char)va_arg(args, int);
-					_putchar(c);
-					i += 1;
-					count += 1;
+					count += print_char(args);
+					i++;
 					break;
 				case 's':
-					va_copy(args_copy, args);
-					str = va_arg(args_copy, char *);
-					print_str(args);
-					count += strlen(str);
-					i += 1;
+					count += print_str(args);
+					i ++;
 					break;
 				case '%':
 					_putchar('%');
